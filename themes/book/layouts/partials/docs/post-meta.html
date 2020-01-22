@@ -1,0 +1,63 @@
+<style>
+	#Cats {
+	padding: 2px;
+	margin: 0.5px;
+	border: 0.5px solid #002d5a;
+	color:#002d5a;
+	background-color: rgba(0,45,90,0.1);
+	outline: none;	
+	text-decoration:none;
+	font-size:13px
+	}
+	
+	#Tags {
+	padding: 2px;
+	margin: 0.5px;
+	border: 0.5px solid #bf8f00;
+	color:#bf8f00;
+	background-color: rgba(255,190,0,0.1);
+	outline: none;	
+	text-decoration:none;
+	font-size:13px;
+	}
+
+	#Series {
+	padding: 2px;
+	margin: 0.5px;
+	border: 0.5px solid #d60000;
+	color:#d60000;
+	background-color: rgba(255,0,0,0.1);
+	outline: none;	
+	text-decoration:none;
+	font-size:13px;
+	}
+
+</style>
+
+{{ $dateFormat := default "January 2, 2006" .Site.Params.BookDateFormat }}
+{{ if or .Date .Params.tags }}
+<div>
+{{ range $term, $_ := .Site.Taxonomies }}
+	{{ if eq $term "series"}}
+	  {{ with $list := index $.Params $term }}
+	    {{ range $n, $single := $list }}{{ if $n }} {{ end -}}
+	      <a id="Series" href="/{{$term}}/{{$single | urlize}}/">{{ $single }}</a>
+	    {{- end }}
+	  {{ end }}
+	{{ else if eq $term "tags"}}
+	  {{ with $list := index $.Params $term }}
+	    {{ range $n, $single := $list }}{{ if $n }} {{ end -}}
+	      <a id="Tags" href="/{{$term}}/{{$single | urlize}}/">{{ $single }}</a>
+	    {{- end }}
+	  {{ end }}	  
+	{{ else }}
+	  {{ with $list := index $.Params $term }}
+	    {{ range $n, $single := $list }}{{ if $n }} {{ end -}}
+	      <a id="Cats" href="/{{$term}}/{{$single | urlize}}/">{{ $single }}</a>
+	    {{- end }}
+	  {{ end }}
+	{{ end }}
+
+{{ end }}
+</div>
+{{ end }}

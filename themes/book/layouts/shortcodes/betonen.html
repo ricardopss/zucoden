@@ -1,0 +1,88 @@
+{{ $Color:= .Get 0 }}
+{{ if eq "red" $Color }}
+
+<style>#styleRed {
+	background-color:rgba(255, 0, 0, 0.1);
+	border-left-color:rgb(255, 0, 0);
+	padding: 5px;}
+</style>
+
+<blockquote id="styleRed", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+{{ else if eq "blue" $Color }}
+
+<style>#styleBlue {
+	background-color:rgba(0, 125, 255, 0.1);
+	border-left-color:rgb(0, 125, 255);
+	padding: 5px;}
+</style>
+
+<blockquote id="styleBlue", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+{{ else if eq "green" $Color }}
+
+<style>#styleGreen {
+	background-color:rgba(0, 180, 0, 0.1);
+	border-left-color:rgb(0, 180, 0);
+	padding: 5px;}
+</style>
+
+<blockquote id="styleGreen", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+{{ else if eq "orange" $Color }}
+
+<style>#styleOrange {
+	background-color:rgba(255, 165, 0, 0.1);
+	border-left-color:rgb(255, 165, 0);
+	padding: 5px;}
+</style>
+
+<blockquote id="styleOrange", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+{{ else if eq "gold" $Color }}
+
+<style>#styleGold {
+	background-color:rgba(255, 180, 0, 0.1);
+	border-left-color:rgb(255, 180, 0);
+	padding: 5px;}
+</style>
+
+<blockquote id="styleGold", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+{{ else if eq "grey" $Color }}
+
+<style>#styleGrey {
+	background-color:rgba(90, 90, 90, 0.1);
+	border-left-color:rgb(90, 90, 90);
+	padding: 5px;}
+</style>
+
+<blockquote id="styleGrey", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+{{ else }}
+
+<blockquote id="styleHex", style="color:black;">{{ .Inner | markdownify}}</blockquote>
+
+<script>
+
+	  const docId = document.getElementById("styleHex");
+
+      function hexToRgb(hex) {
+ 		 var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  			return result ? {
+    			r: parseInt(result[1], 16),
+    			g: parseInt(result[2], 16),
+    			b: parseInt(result[3], 16)
+  	  } : null;}
+
+  	  var colR = hexToRgb("#{{.Get 0}}").r;
+  	  var colG = hexToRgb("#{{.Get 0}}").g;
+  	  var colB = hexToRgb("#{{.Get 0}}").b; 	  
+
+      docId.style.backgroundColor = "rgba(colR,colG,colB, 0.2)".replace(/colR/,colR).replace(/colG/,colG).replace(/colB/,colB);
+      docId.style.borderLeft = "thick solid rgb(colR,colG,colB)".replace(/colR/,colR).replace(/colG/,colG).replace(/colB/,colB);
+      docId.style.padding = "5px";
+
+</script>
+
+{{ end }}
