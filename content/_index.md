@@ -7,7 +7,7 @@ type: docs
 ## How to(s)...
 
 <--->
-## ...for coding (ohnen Tränen)
+## ...for coding (ohne Tränen)
 {{< /columns >}}
 
 ## Shortcuts

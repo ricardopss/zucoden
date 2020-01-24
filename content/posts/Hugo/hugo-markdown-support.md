@@ -6,7 +6,7 @@ tags: ['markdown']
 categories: ['Hugo']
 ---
 
-Hugo provides support for the following Markdown elements using its default Goldmark Markdown processor:
+Hugo provides support for the [following Markdown](https://www.markdownguide.org/basic-syntax#italic) elements using its default Goldmark Markdown processor:
 
 ### Headings	
 ```
