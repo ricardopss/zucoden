@@ -1,8 +1,8 @@
 ---
 title: "How to Access Current Datetime"
 date: 2020-01-18T16:31:45+01:00
-draft: false
-tags: ['date', 'time', 'datetime']
+series: ['datetime']
+tags: ['date', 'time']
 categories: ['Python']
 ---
 

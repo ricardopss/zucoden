@@ -1,7 +1,7 @@
 ---
 title: "Datetime Module"
 date: 2020-01-18T16:31:33+01:00
-draft: false
+series: ['datetime']
 tags: ['date', 'time', 'datetime']
 categories: ['Python']
 ---

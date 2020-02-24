@@ -1,8 +1,8 @@
 ---
 title: "How to Convert Strings to Datetimes"
 date: 2020-01-18T16:31:56+01:00
-draft: false
-tags: ['date', 'time', 'datetime', 'strings']
+series: ['datetime']
+tags: ['date', 'time', 'strings']
 categories: ['Python']
 ---
 
