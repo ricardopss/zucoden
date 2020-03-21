@@ -1,8 +1,8 @@
 ---
 title: "PySpark Primer"
 date: 2020-02-04T16:43:08+01:00
-series: ['PySpark']
-tags: ['data science', 'big data']
+draft: True
+tags: ['PySpark', 'Data Science', 'Big Data', 'Towards Data Science']
 categories: ['Python']
 ---
 
@@ -43,12 +43,29 @@ You can run these types of methods on RDDs:
 - **Actions**: query the data and return values
 - **Transformations**: manipulate data values and return pointers to new RDDs.
 
+## Installing PySpark in Google Colab
+To get Spark running in Colab run the following block of code:
 
-## Create a RDD
+```python
+!apt-get install openjdk-8-jdk-headless -qq > /dev/null
+!wget -q https://www-us.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz
+!tar xf spark-2.4.5-bin-hadoop2.7.tgz
+!pip install -q findspark
+import os
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
+os.environ["SPARK_HOME"] = "/content/spark-2.4.5-bin-hadoop2.7"
+import findspark
+findspark.init()
+```
+{{< betonen red >}}
+If it returns a error it is probably because the Spark version in the code is outdate. Check the [Spark](https://spark.apache.org/downloads.html) website, search for the newst version and replace in the code above.
+{{< /betonen >}}
+
+## Create a SparkContext
 
 
 
-
+## Some methods to view the data in RDD 
 
 ## Manipulate data in RDDs
 
@@ -294,6 +311,51 @@ z_rdd_distinct.collect()
 
 ## Analyze text data from a file
 
+### Get the file from a URL
+to run shell commands in Python Notebooks, use {{< code gold>}}!{{< /code >}}
+
+```python
+!rm README.md* -f  # removes any file with the README.md
+!wget https://raw.githubusercontent.com/carloapp2/SparkPOT/master/README.md
+```
+
+to create an RDD from the file, use the `textFile()` method
+
+{{< tabs "textFile" >}}
+{{< tab "python" >}}
+```python
+textfile_rdd = sc.textFile("README.md")
+textfile_rdd.count()
+textfile_rdd.take(20)
+``` 
+{{< /tab >}}
+{{< tab ">>" >}}
+```
+98
+
+['# Apache Spark',
+ '',
+ 'Spark is a fast and general cluster computing system for Big Data. It provides',
+ 'high-level APIs in Scala, Java, and Python, and an optimized engine that',
+ 'supports general computation graphs for data analysis. It also supports a',
+ 'rich set of higher-level tools including Spark SQL for SQL and structured',
+ 'data processing, MLlib for machine learning, GraphX for graph processing,',
+ 'and Spark Streaming for stream processing.',
+ '',
+ '<http://spark.apache.org/>',
+ '',
+ '',
+ '## Online Documentation',
+ '',
+ 'You can find the latest Spark documentation, including a programming',
+ 'guide, on the [project web page](http://spark.apache.org/documentation.html)',
+ 'and [project wiki](https://cwiki.apache.org/confluence/display/SPARK).',
+ 'This README file only contains basic setup instructions.',
+ '',
+ '## Building Spark']
+```
+{{< /tab >}}
+{{< /tabs >}}
 
 #### Filter for a word
 Filter the RDD to keep only the elements that contain the word _"Spark"_ with the `filter()` transformation:
