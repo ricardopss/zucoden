@@ -106,5 +106,3 @@ There are several ways to work with PySpark:
 
 
 
-
-
