@@ -302,6 +302,12 @@ aside nav,
   }
 }
 
+@media screen and (max-width: $md-breakpoint) {
+    svg {
+        width:40%;
+    }
+}
+
 @media screen and (max-width: $sm-breakpoint) {
   .book-menu {
     margin-left: -$menu-width;
