@@ -5,13 +5,6 @@ series: ["D3"]
 tags: ['.enter', '.append', '.exit', '.merge']
 categories: ["Javascript"]
 ---
-<style>
-  body {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
-  }
-</style>
-
 <script src="//d3js.org/d3.v4.min.js"></script>
 
 In the [Data joins](/posts/javascript/data-joins)  we show how to join an array of data to a D3 selection.
@@ -469,28 +462,85 @@ var u = d3.select('#content4')
 {{< code gold>}}This is a big departure from v3{{< /code >}}. The entering elements were implicitly included in the update selection so there was no need for `.merge`.
 
 ## General update pattern
+A common pattern (proposed by D3’s creator [Mike Bostock](https://bl.ocks.org/mbostock/3808218)) is to encapsulate the above behaviour of {{< color blue >}}adding, removing and updating{{< /color >}} DOM elements in a single function:
 
-A common pattern (proposed by D3’s creator Mike Bostock) is to encapsulate the above behaviour of adding, removing and updating DOM elements in a single function:
 
+{{< tabs "Enter5" >}}
+{{< tab "js" >}}
+```js
 function update(data) {
   var u = d3.select('#content')
     .selectAll('div')
     .data(data);
 
   u.enter()
-    .append('div')
+    .append('div')			//add necessary DOM elements
     .merge(u)
     .text(function(d) {
       return d;
     });
 
-  u.exit().remove();
+  u.exit().remove();		//remove excess DOM elements
+} 
+``` 
+{{< /tab >}}
+{{< tab ">>" >}}
+<style>
+#contentEnter5 div {
+	display: inline-block;
+	margin: 2px;
+	background-color: orange;
+	color: white;
+	padding: 8px;
+	width: 14px;
+	height: 14px;
+	text-align: center;
+}
+</style>
+
+<div id="menu">
+	<button onClick="doUpdateEnter5();">Update</button>
+</div>
+
+<div id="contentEnter5">
+</div>
+
+<script>
+var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+function doUpdateEnter5() {
+	var rand = Math.floor( Math.random() * 26 );
+	var myData = letters.slice(0, rand).split('');
+	update(myData);
 }
 
-Typically the update function is called whenever the data changes.
+function update(data) {
+	var u = d3.select('#contentEnter5')
+	  .selectAll('div')
+	  .data(data);
 
-Here’s another example where we colour entering elements orange:
+	u.enter()
+	  .append('div')
+	  .merge(u)
+		.text(function(d) {
+			return d;
+		});
 
+	u.exit().remove();
+}
+
+doUpdateEnter5();
+</script>
+
+{{< /tab >}}
+{{< /tabs >}}
+
+
+Typically the update function is called whenever the data changes. 
+
+Here’s another example where we colour only the entering elements orange:
+
+```js
 function update(data) {
   var u = d3.select('#content')
     .selectAll('div')
@@ -510,20 +560,220 @@ function update(data) {
 
   u.exit().remove();
 }
-
+```
 ## Data join key function
-When we do a data join D3 binds the first array element to the first element in the selection, the second array element to the second element in the selection and so on.
+When we do a data join, D3 binds the first array element to the first element in the selection, the second array element to the second element in the selection and so on.
 
-However, if the order of array elements changes (such as during element sorting, insertion or removal), the array elements might get joined to different DOM elements.
+However, {{< color blue >}}if the order of array elements changes{{< /color >}} (such as during element sorting, insertion or removal), the array elements might get joined to different DOM elements.
 
-We can solve this problem by providing .data with a key function. This function should return a unique id value for each array element, allowing D3 to make sure each array element stays joined to the same DOM element.
+We can solve this problem by providing `.data` with a key function. This function should return a unique {{< code gold>}}id value{{< /code >}} for each array element, allowing D3 to make sure each array element stays joined to the same DOM element.
 
-Let’s look at an example, first using a key function, and then without.
+Let’s look at 2 examples, first using a key function, and then without:
 
-We start with an array ['Z'] and each time the button is clicked a new letter is added at the start of the array.
+We start with an array `['Z']` and each time the button is clicked a new letter is added at the start of the array.
 
 Because of the key function each letter will stay bound to the same DOM element meaning that when a new letter is inserted each existing letter transitions into a new position:
 
+{{< tabs "Enter6" >}}
+{{< tab "js" >}}
+```html
+<script>
+var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var i = 25;
+
+function doInsert() {
+	if(i < 0)
+		return;
+
+	var myData = letters.slice(i).split('');
+	i--;
+	update(myData);
+}
+
+function update(data) {
+	var u = d3.select('#content')
+		.selectAll('div')
+		.data(data, function(d) {
+			return d;
+		});
+
+	u.enter()
+		.append('div')
+		.merge(u)
+		.transition()
+		.style('left', function(d, i) {
+			return i * 32 + 'px';
+		})
+		.text(function(d) {
+			return d;
+		});
+}
+
+doInsert();
+</script>
+``` 
+{{< /tab >}}
+{{< tab ">>" >}}
+<style>
+#contentE6A {
+	position: relative;
+	height: 40px;
+}
+#contentE6A div {
+	position: absolute;
+	margin: 2px;
+	background-color: orange;
+	color: white;
+	padding: 8px;
+	width: 28px;
+	height: 28px;
+	text-align: top;
+}
+</style>
+
+<div id="contentE6A">
+</div>
+
+<div id="menu">
+	<button onClick="doInsertE6A();">Insert element</button>
+</div>
+
+<script>
+var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var i = 25;
+
+function doInsertE6A() {
+	if(i < 0)
+		return;
+
+	var myData6A = letters.slice(i).split('');
+	i--;
+	updateA(myData6A);
+}
+
+function updateA(data) {
+	var u = d3.select('#contentE6A')
+		.selectAll('div')
+		.data(data, function(d) {
+			return d;
+		});
+
+	u.enter()
+		.append('div')
+		.merge(u)
+		.transition()
+		.style('left', function(d, i) {
+			return i * 32 + 'px';
+		})
+		.text(function(d) {
+			return d;
+		});
+}
+
+doInsertE6A();
+</script>
+{{< /tab >}}
+{{< /tabs >}}
+
 Without a key function the DOM elements’ text is updated (rather than position) meaning we lose a meaningful transition effect:
 
+{{< tabs "Enter7" >}}
+{{< tab "js" >}}
+```html
+<script>
+var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var i = 25;
+
+function doInsert() {
+	if(i < 0)
+		return;
+
+	var myData = letters.slice(i).split('');
+	i--;
+	update(myData);
+}
+
+function update(data) {
+	var u = d3.select('#content')
+		.selectAll('div')
+		.data(data);		<!-- %%% CHANGED %%% -->
+
+	u.enter()
+		.append('div')
+		.merge(u)
+		.transition()
+		.style('left', function(d, i) {
+			return i * 32 + 'px';
+		})
+		.text(function(d) {
+			return d;
+		});
+}
+
+doInsert();
+</script>
+``` 
+{{< /tab >}}
+{{< tab ">>" >}}
+<style>
+#contentE6B {
+	position: relative;
+	height: 40px;
+}
+#contentE6B div {
+	position: absolute;
+	margin: 2px;
+	background-color: orange;
+	color: white;
+	padding: 8px;
+	width: 28px;
+	height: 28px;
+	text-align: top;
+}
+</style>
+
+<div id="contentE6B">
+</div>
+
+<div id="menu">
+	<button onClick="doInsertE6B();">Insert element</button>
+</div>
+
+<script>
+var lettersA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var j = 25;
+
+function doInsertE6B() {
+	if(j < 0)
+		return;
+
+	var myData6B = letters.slice(j).split('');
+	j--;
+	updateB(myData6B);
+}
+
+function updateB(data) {
+	var u = d3.select('#contentE6B')
+		.selectAll('div')
+		.data(data);
+
+	u.enter()
+		.append('div')
+		.merge(u)
+		.transition()
+		.style('left', function(d, i) {
+			return i * 32 + 'px';
+		})
+		.text(function(d) {
+			return d;
+		});
+}
+
+doInsertE6B();
+</script>
+{{< /tab >}}
+{{< /tabs >}}
+
+{{< betonen gold >}}
 There’s many instances when key functions are not required but if there’s any chance that your data elements can change position (e.g. through insertion or sorting) and you’re using transitions then you should probably use them.
+{{< /betonen >}}

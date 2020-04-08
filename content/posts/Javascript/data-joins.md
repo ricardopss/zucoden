@@ -5,12 +5,6 @@ series: ["D3"]
 tags: ['.data', 'data join', '.datum']
 categories: ["Javascript"]
 ---
-<style>
-  body {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
-  }
-</style>
 <script src="//d3js.org/d3.v4.min.js"></script>
 
 Given an array of data and a D3 selection we can _attach_ or _join_ each array element to each element of the selection.

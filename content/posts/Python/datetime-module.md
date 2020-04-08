@@ -9,10 +9,9 @@ categories: ['Python']
 `datetime` is a module to work with clocks and calendar.
 
 {{< tabs "Tab1" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime
-
 dir(datetime)
 ```
 {{< /tab >}}
@@ -27,11 +26,11 @@ dir(datetime)
 
 Where `date`, `time`, `datetime` and `timedelta` are some of the main classes.
 
-### `date` class
+## `date` class
 
 To create a date
 {{< tabs "Tab2" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -61,10 +60,10 @@ The main methods and attributes in `date` class are:
 
 ```
 
-### `time` class
+## `time` class
 To create a time stamp
 {{< tabs "Tab3" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -92,11 +91,11 @@ The main methods and attributes in `time` class are:
 'dst', 'fold', 'hour', 'isoformat', 'max', 'microsecond', 'min', 'minute', 'replace', 'resolution', 'second', 'strftime', 'tzinfo', 'tzname', 'utcoffset']
 ```
 
-### `datetime` class
+## `datetime` class
 The `datetime` class combines both `date` and `time` classes. 
 
 {{< tabs "Tab4" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -124,11 +123,11 @@ print(launch_date.second)
 {{< /tab >}}
 {{< /tabs >}}
 
-### access current datetime
+## access current datetime
 To access the current datetime, use the `today()` method from the `datetime` class.
 
 {{< tabs "Tab5" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -148,15 +147,15 @@ Note that `today()` date format returns also the microseconds (`datetime.microse
 For diferent dateformats, see [documentation](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
 {{< /betonen >}}
 
-### display date in differents formats
+## display date in differents formats
 
 Suppose that we want to display a date following Day-name, Month-name Day-#, Year:
 
 There are 2 ways to execute this taks:
 
-#### use the `strftime`[^2] method:
+### use the `strftime`[^2] method:
 {{< tabs "Tab6" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -171,9 +170,9 @@ Tuesday, January 31, 1956
 {{< /tab >}}
 {{< /tabs >}}
 
-#### create a string with a format
+### create a string with a format
 {{< tabs "Tab7" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -189,7 +188,7 @@ GVR was born on Tuesday, January 31, 1956.
 {{< /tab >}}
 {{< /tabs >}}
 
-### Some Date formats code:
+## Some Date formats code:
 
 |Directive|Meaning|Example|
 |:-|:-|:-|
@@ -228,11 +227,11 @@ GVR was born on Tuesday, January 31, 1956.
 **Note:** Examples are based on `datetime.datetime(2013, 9, 30, 7, 6, 5)`
 
 
-### convert strings to datetimes
+## convert strings to datetimes
 To convert strings to datetimes use `strptime()`[^1] method 
 
 {{< tabs "Tab8" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -249,12 +248,12 @@ print(type(moon_landing_date))
 ```
 {{< /tab >}}
 {{< /tabs >}}
-### some basic operations with `timedelta`
+## some basic operations with `timedelta`
 
 The `timedelta` class allows to add (+)/subtract(-) a delta, in days, from a specific datetime.
 
 {{< tabs "Tab9" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 

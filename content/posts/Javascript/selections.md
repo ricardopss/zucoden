@@ -5,13 +5,6 @@ series: ["D3"]
 tags: ['selections', '.select', '.selectAll']
 categories: ["Javascript"]
 ---
-<style>
-  body {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
-  }
-</style>
-
 <script src="//d3js.org/d3.v4.min.js"></script>
 
 {{< code gold >}}Selections{{< /code >}} allow DOM elements to be selected in order to do something with them (e.g. changing style, modifying their attributes, performing data-joins or inserting/removing elements).
