@@ -2,7 +2,7 @@
 title: "Scales Functions"
 date: 2020-03-28T17:23:50+01:00
 series: ["D3"]
-tags: ['scale', '.scaleLinear', '.scalePow', '.scaleSqrt', '.scaleLog', '.scaleTime', '.scaleSequential','.scaleQuantile', '.scaleQuantize', '.scaleThreshold', '.scaleOrdinal', '.scaleBand', '.scalePoint', '.unknown', '.schemePaired', '.clamp', '.nice', '.invert', '.extent', '.domain', '.range', '.quantiles', '.bandwidth', '.paddingInner', '.paddingOuter', '.step']
+tags: ['scale', 'scaleLinear', 'scalePow', 'scaleSqrt', 'scaleLog', 'scaleTime', 'scaleSequential','scaleQuantile', 'scaleQuantize', 'scaleThreshold', 'scaleOrdinal', 'scaleBand', 'scalePoint', 'unknown', 'schemePaired', 'clamp', 'nice', 'invert', 'extent', 'domain', 'range', 'quantiles', 'bandwidth', 'paddingInner', 'paddingOuter', 'step']
 categories: ["Javascript"]
 ---
 <script>
@@ -628,7 +628,6 @@ colourScale(5);    // returns "rgb(111, 111, 238)"
 </svg>
 
 <script>
-
 var mD = [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10];
 
 var linearScale = d3.scaleLinear()
@@ -830,7 +829,7 @@ thresholdScale(110);  // returns '#ccc'
   	</g>
 </svg>
 
-  <script>
+<script>
 var linearScale = d3.scaleLinear()
 	.domain([-10, 110])
 	.range([0, 600]);
@@ -855,7 +854,7 @@ d3.select('#scale11')
 		return thresholdScale(d);
 	});
 
-  </script>
+</script>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -901,10 +900,14 @@ var ordinalScale = d3.scaleOrdinal()
 (Note that the Brewer colour schemes are defined within a separate file d3-scale-chromatic.js.)
 
 ### scaleBand
-When creating bar charts scaleBand helps to determine the geometry of the bars, taking into account padding between each bar. The domain is specified as an array of values (one value for each band) and the range as the minimum and maximum extents of the bands (e.g. the total width of the bar chart).
+When creating bar charts `.scaleBand` helps to determine the {{< color blue >}}geometry of the bars{{< /color >}}, taking into account padding between each bar. The domain is specified as: 
 
-In effect scaleBand will split the range into n bands (where n is the number of values in the domain array) and compute the positions and widths of the bands taking into account any specified padding.
+- an array of values (one value for each band); and 
+- the range as the minimum and maximum extents of the bands (e.g. the total width of the bar chart).
 
+In effect `.scaleBand` will split the range into _n bands_ (where _n_ is the number of values in the domain array) and compute the positions and widths of the bands taking into account any specified padding.
+
+```js
 var bandScale = d3.scaleBand()
   .domain(['Mon', 'Tue', 'Wed', 'Thu', 'Fri'])
   .range([0, 200]);
@@ -912,26 +915,36 @@ var bandScale = d3.scaleBand()
 bandScale('Mon'); // returns 0
 bandScale('Tue'); // returns 40
 bandScale('Fri'); // returns 160
+```
+
 The width of each band can be accessed using .bandwidth():
 
+```js
 bandScale.bandwidth();  // returns 40
+```
 Two types of padding may be configured:
 
-paddingInner which specifies (as a percentage of the band width) the amount of padding between each band
-paddingOuter which specifies (as a percentage of the band width) the amount of padding before the first band and after the last band
+- `paddingInner` which specifies (as a percentage of the band width) the amount of padding between each band
+- `paddingOuter` which specifies (as a percentage of the band width) the amount of padding before the first band and after the last band
+
 Let’s add some inner padding to the example above:
 
+```js
 bandScale.paddingInner(0.05);
 
 bandScale.bandWidth();  // returns 38.38...
 bandScale('Mon');       // returns 0
 bandScale('Tue');       // returns 40.40...
-Putting this all together we can create this bar chart:
+```
 
+Putting this all together we can [create bar chart](/posts/javascript/create-bar-chart-with-scaleband).
 
 ### scalePoint
-scalePoint creates scale functions that map from a discrete set of values to equally spaced points along the specified range:
+`.scalePoint` creates scale functions that map from a {{< color blue >}}discrete set of values{{< /color >}} to equally spaced points along the specified range:
 
+{{< tabs "ScalePoint" >}}
+{{< tab "js" >}}
+```js
 var pointScale = d3.scalePoint()
   .domain(['Mon', 'Tue', 'Wed', 'Thu', 'Fri'])
   .range([0, 500]);
@@ -939,16 +952,54 @@ var pointScale = d3.scalePoint()
 pointScale('Mon');  // returns 0
 pointScale('Tue');  // returns 125
 pointScale('Fri');  // returns 500
+``` 
+{{< /tab >}}
+{{< tab ">>" >}}
+<svg width="700" height="80">
+	<g id="scalePointId" transform="translate(40, 40)">
+	</g>
+</svg>
 
-The distance between the points can be accessed using .step():
+<script>
+var myDataScalePoint = [
+	{day : 'Mon', value: 10},
+	{day : 'Tue', value: 40},
+	{day : 'Wed', value: 30},
+	{day : 'Thu', value: 60},
+	{day : 'Fri', value: 30}
+];
 
+var pointScale = d3.scalePoint()
+	.domain(['Mon', 'Tue', 'Wed', 'Thu', 'Fri'])
+	.range([0, 600]);
+
+d3.select('#scalePointId')
+	.selectAll('circle')
+	.data(myDataScalePoint)
+	.enter()
+	.append('circle')
+	.attr('cx', function(d) {
+		return pointScale(d.day);
+	})
+	.attr('r', 4);
+</script>	
+{{< /tab >}}
+{{< /tabs >}}
+
+The distance between the points can be accessed using `.step()`:
+
+```js
 pointScale.step();  // returns 125
+```
+
 Outside padding can be specified as the ratio of the padding to point spacing. For example, for the outside padding to be a quarter of the point spacing use a value of 0.25:
 
+```js
 pointScale.padding(0.25);
 
 pointScale('Mon');  // returns 27.77...
 pointScale.step();  // returns 111.11...
+```
 
 ## Further reading
 - [ColorBrewer schemes for D3](https://github.com/d3/d3-scale-chromatic)
