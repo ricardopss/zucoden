@@ -2,7 +2,7 @@
 title: "Scales Functions"
 date: 2020-03-28T17:23:50+01:00
 series: ["D3"]
-tags: ['scale', .scaleLinear', '.scalePow', '.scaleSqrt', '.scaleLog', '.scaleTime', '.scaleSequential','.scaleQuantile', '.scaleQuantize', '.scaleThreshold', '.scaleOrdinal', '.scaleBand', '.scalePoint', '.unknown', '.schemePaired', '.clamp', '.nice', '.invert', '.extent', '.domain', '.range', '.quantiles', '.bandwidth', '.paddingInner', '.paddingOuter', '.step']
+tags: ['scale', '.scaleLinear', '.scalePow', '.scaleSqrt', '.scaleLog', '.scaleTime', '.scaleSequential','.scaleQuantile', '.scaleQuantize', '.scaleThreshold', '.scaleOrdinal', '.scaleBand', '.scalePoint', '.unknown', '.schemePaired', '.clamp', '.nice', '.invert', '.extent', '.domain', '.range', '.quantiles', '.bandwidth', '.paddingInner', '.paddingOuter', '.step']
 categories: ["Javascript"]
 ---
 <script>
