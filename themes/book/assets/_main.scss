@@ -304,7 +304,7 @@ aside nav,
 
 @media screen and (max-width: $md-breakpoint) {
     svg {
-        width: $container-max-width;
+        width: $body-min-width;
     }
 }
 
