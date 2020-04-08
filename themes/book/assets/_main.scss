@@ -342,3 +342,9 @@ aside nav,
     padding: $padding-16 * 2 $padding-16;
   }
 }
+
+@media screen and (min-width: $container-max-width) {
+    svg {
+        zoom: 0.8;
+    }
+}
