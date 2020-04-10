@@ -2,7 +2,7 @@
 title: "Convert user´s click along an axis into a domain value"
 date: 2020-04-07T17:58:25+02:00
 series: ["D3"]
-tags: ['.scaleLinear', '.invert', 'scale']
+tags: ['scaleLinear', 'invert', 'scale']
 categories: ["Javascript"]
 ---
 <style>

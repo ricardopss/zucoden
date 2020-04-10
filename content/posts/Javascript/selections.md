@@ -2,7 +2,7 @@
 title: "Selections"
 date: 2020-03-24T17:14:53+01:00
 series: ["D3"]
-tags: ['selections', '.select', '.selectAll']
+tags: ['selections', 'select', 'selectAll']
 categories: ["Javascript"]
 ---
 <script src="//d3js.org/d3.v4.min.js"></script>

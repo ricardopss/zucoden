@@ -1,15 +1,15 @@
 ---
 title: "Create a `SparkContext`"
 date: 2020-02-20T16:28:28+01:00
-series: ['PySpark']
-tags: ['RDD', 'big data']
+series: ['pyspark']
+tags: ['RDD', 'SparkConf', 'SparkContext']
 categories: ["Python"]
 ---
 
 Once the PySpark was [installed](/posts/python/installing-pyspark-in-google-colab), the next step is to initiate a _Spark driver application_, using `SparkContext()`, where all the code for that application will run on.
 
 {{< tabs "Create a SparkContext" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark import SparkContext, SparkConf
 

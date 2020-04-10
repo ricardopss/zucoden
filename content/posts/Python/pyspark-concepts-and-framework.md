@@ -1,7 +1,7 @@
 ---
 title: "Pyspark Concepts and Framework"
 date: 2020-03-19T11:44:10+01:00
-series: ['PySpark']
+series: ['pyspark']
 tags: ['concepts', 'distributed computing', 'RDD']
 categories: ['Python']
 ---

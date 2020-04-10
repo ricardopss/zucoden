@@ -1,8 +1,8 @@
 ---
 title: "Create a chart using Spark SQL"
 date: 2020-02-21T18:24:27+01:00
-series: ['PySpark', 'matplotlib']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark', 'matplotlib', 'numpy']
+tags: ['toPandas', 'head', 'value_counts', 'to_frame', 'rename_axis', 'reset_index', 'groupBy', 'count', 'sql', 'bar']
 categories: ["Python"]
 ---
 
@@ -13,7 +13,7 @@ To create a chart using Pandas, we call the `.plot()` method and specify the typ
 ## Sorting/Aggregating Data using Pandas
 
 {{< tabs "Data Visualization1" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 %matplotlib inline  ### to show graphs inline
 import matplotlib.pyplot as plt
@@ -61,7 +61,7 @@ The same output can be achieved using PySpark by aggregating the data by GENDER:
 - Run the `groupBy()` and `count()` methods on the Spark DataFrame.
 
 {{< tabs "Data Visualization2" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 gender_df = spark_df.groupBy("GENDER").count()  	# spark_df is a PySpark DataFrame object
 gender_df.show()
@@ -78,6 +78,7 @@ spark_gender_df = sqlContext.sql(query).toPandas()	# (!)
 spark_gender_df.plot.bar(x="GENDER", y="Count", rot=0, figsize=(12, 5));
 ``` 
 {{< /tab >}}
+
 {{< tab ">>" >}}
 ```
 +------+-----+

@@ -1,8 +1,8 @@
 ---
 title: "Convert a Pandas DataFrame to a Spark DataFrame"
 date: 2020-02-21T18:23:53+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data', 'url']
+series: ['pyspark', 'pandas']
+tags: ['wget', 'read_csv', 'head', 'createDataFrame', 'registerTempTable', 'show']
 categories: ["Python"]
 ---
 
@@ -11,7 +11,7 @@ Although pandas DataFrames display data in a friendlier format, Spark DataFrames
 To show how to convert a pandas DataFrames to a Spark Dataframe, we will use a new data set (CSV) and the apply `.createDataFrame()` method:
 
 {{< tabs "Pandas to Spark" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 !rm GoSales_Tx.csv -f
 !wget https://raw.githubusercontent.com/pmservice/wml-sample-models/master/spark/product-line-prediction/data/GoSales_Tx.csv

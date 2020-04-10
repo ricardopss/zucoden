@@ -1,8 +1,8 @@
 ---
 title: "Run Sql Queries"
 date: 2020-02-20T16:10:31+01:00
-series: ['PySpark']
-tags: ['querying data', 'shell', 'SQL', 'big data']
+series: ['pyspark', 'pandas']
+tags: ['sql', 'toPandas']
 categories: ["Python"]
 ---
 
@@ -15,7 +15,7 @@ For how to display the contents(results) of a DataFrame(query):
 {{< /betonen >}}
 
 {{< tabs "Run SQL Queries" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 import pandas as pd
 
@@ -35,7 +35,7 @@ sqlContext.sql("select id, borrower from world_bank limit 2").toPandas()
 We can make SQL queries easier to read by using the query keyword and surrounding the SQL query with `"""` on separate lines:
 
 {{< tabs "Run a group by query" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 query = """
 select
@@ -69,7 +69,7 @@ sqlContext.sql(query).toPandas()
 We can run subselect queries, e.g. calculate a count of projects by region again, but this time using a subselect and by creating a temporary table `table_alias`:
 
 {{< tabs "Run a subselect query" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 query = """
 
@@ -103,7 +103,7 @@ Specially for JSON data, we can access/select the values of nested fields using 
 [See world_bank schema](/posts/python/dataframe-overview-printschema): sector.Name is a nested field and then select its first two values:
 
 {{< tabs "Return nested JSON field values" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 sql = "select sector.Name from world_bank limit 5"
 

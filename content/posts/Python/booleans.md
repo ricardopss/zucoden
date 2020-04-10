@@ -2,7 +2,7 @@
 title: "Booleans"
 date: 2020-01-18T16:31:25+01:00
 draft: false
-tags: ['boolean', 'True', 'False', 'Logic']
+tags: ['boolean', 'Logic']
 categories: ["Python"]
 ---
 

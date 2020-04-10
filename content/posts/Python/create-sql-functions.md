@@ -1,15 +1,15 @@
 ---
 title: "Create SQL Functions"
 date: 2020-02-21T18:23:17+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark']
+tags: ['registerFunction', 'sql', 'cast', 'show']
 categories: ["Python"]
 ---
 
 SQL queries can be runned through functions. Once a function is declared, it muss be registered as an SQL function with the `.registerFunction()` method:
 
 {{< tabs "SQL Functions" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 def simpleFunction(v):
     return int(v * 10)

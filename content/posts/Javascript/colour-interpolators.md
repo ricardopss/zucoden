@@ -2,7 +2,7 @@
 title: "Colour Interpolators"
 date: 2020-04-07T14:10:01+02:00
 series: ["D3"]
-tags: ['scale', '.scaleSequential']
+tags: ['scale', 'scaleSequential']
 categories: ["Javascript"]
 ---
 <script src="//d3js.org/d3.v4.min.js"></script>

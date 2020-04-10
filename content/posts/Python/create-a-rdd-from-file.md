@@ -1,15 +1,15 @@
 ---
 title: "Create a RDD from file using `textFile()` "
 date: 2020-02-23T22:00:21+01:00
-series: ['PySpark']
-tags: ['RDD', 'big data']
+series: ['pyspark']
+tags: ['wget', 'RDD', 'textFile', 'count', 'take']
 categories: ["Python"]
 ---
 
-To create a RDD from the file, use the `.textFile()` method:
+To create a RDD from the file[^1], use the `.textFile()` method:
 
 {{< tabs "textFile" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 !rm README.md* -f  # removes any file with the README.md
 !wget https://raw.githubusercontent.com/carloapp2/SparkPOT/master/README.md
@@ -58,3 +58,5 @@ README.md           100%[===================>]   3.54K  --.-KB/s    in 0s
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+[^1]: where we first get the file from a URL, with `wget`

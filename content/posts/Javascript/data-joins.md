@@ -2,7 +2,7 @@
 title: "Data Joins"
 date: 2020-03-28T17:23:30+01:00
 series: ["D3"]
-tags: ['.data', 'data join', '.datum']
+tags: ['data', 'data join', 'datum']
 categories: ["Javascript"]
 ---
 <script src="//d3js.org/d3.v4.min.js"></script>

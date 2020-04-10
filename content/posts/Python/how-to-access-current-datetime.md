@@ -2,14 +2,14 @@
 title: "How to Access Current Datetime"
 date: 2020-01-18T16:31:45+01:00
 series: ['datetime']
-tags: ['date', 'time']
+tags: ['date', 'time', 'today']
 categories: ['Python']
 ---
 
 To access the current datetime, use the `today()` method from the `datetime` class from the `datetime` module.
 
 {{< tabs "Uniqueid" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 
@@ -43,7 +43,7 @@ print(today_date.microsecond)
 Note that `today()` date format returns also the microseconds (`datetime.microsecond`). 
 {{< /betonen >}}
 
-###Some date formats code:
+## Some date formats code:
 
 |Directive|Meaning|Example|
 |:-|:-|:-|

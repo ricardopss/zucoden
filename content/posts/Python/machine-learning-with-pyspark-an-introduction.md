@@ -1,8 +1,8 @@
 ---
 title: "Machine Learning with Pyspark - An Introduction"
 date: 2020-02-23T20:12:05+01:00
-series: ['PySpark']
-tags: ['machine learning', 'big data', 'alternating least squares algorithm']
+series: ['pyspark', 'mllib', 'ml']
+tags: ['machine learning', 'alternating least squares algorithm', 'als', 'fit', 'set', 'transform', 'map', 'filter', 'select', 'distinct', 'withColumn', 'toPandas', 'registerTempTable', 'toDF']
 categories: ["Python"]
 ---
 
@@ -50,7 +50,7 @@ The ALS algorithm has these hyperparameters:
 Assign the `.userCol`, `.itemCol`, and `.ratingCol` parameters to the appropriate data columns. Set the `implicitPrefs` parameter to true so that the algorithm can predict latent factors.
 
 {{< tabs "ML 1" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.ml.recommendation import ALS
 
@@ -82,7 +82,7 @@ The model is accurate when the prediction values for products that the customers
 Remove any of the customers or products in `cvDf` that are not in `testDf`:
 
 {{< tabs "Test The Models" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.sql.functions import UserDefinedFunction
 from pyspark.sql.types import BooleanType
@@ -109,7 +109,7 @@ print(cvDf.count())
 Run the model with the cross-validation DataFrame by using the `.transform()` function and print the first two rows of each set of predictions:
 
 {{< tabs "Models on the Cross-Validation" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 predictions1 = model1.transform(cvDf)
 predictions2 = model2.transform(cvDf)
@@ -135,7 +135,7 @@ You'll use the mean squared error calculation to determine accuracy by comparing
 For all predictions, subtract the prediction from the actual purchase value (1), square the result, and calculate the mean of all of the squared differences:
 
 {{< tabs "Calculate the accuracy for each model" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 meanSquaredError1 = predictions1.rdd.map(lambda line: (line.purch - line.prediction)**2).mean()
 meanSquaredError2 = predictions2.rdd.map(lambda line: (line.purch - line.prediction)**2).mean()
@@ -167,7 +167,7 @@ Now run model3 on the testing data set to confirm that it's the best model. You 
 Clean the testing data set, run model3 on the testing data set, and calculate the mean squared error:
 
 {{< tabs "Confirm the Best Model" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 filteredTestDf = testDf.rdd.filter(lambda line: line.stockCode in stock and\
                                               line.custId in customers).toDF()
@@ -191,7 +191,7 @@ Use the best model to predict which products a specific customer might be intere
 Create a DataFrame in which each row has the customer ID (15544) and a product ID:
 
 {{< tabs "CLientDataFrame" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.sql.functions import lit
 
@@ -221,7 +221,7 @@ for row in userItems.take(5):
 Run the transform function to create a prediction value for each product:
 
 {{< tabs "Rate Each Product" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 userItems = model3.transform(userItems)
 
@@ -257,7 +257,7 @@ sqlContext.sql(query).toPandas()
 ### Compare purchased and recommended products
 
 {{< tabs "Compare Purchassed vs Recommended" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 tockItems = sqlContext.sql("select distinct stockCode, description from retailPurchases")
 stockItems.registerTempTable("stockItems")

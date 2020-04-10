@@ -1,8 +1,8 @@
 ---
 title: "Converting RDDs to Dataframes"
 date: 2020-02-20T16:10:04+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark', 'random']
+tags: ['random', 'append', 'parallelize', 'collect', 'StructField', 'StructType', 'createDataFrame', 'registerTempTable', 'printSchema', 'take', 'sql', 'toDF', 'map']
 categories: ["Python"]
 ---
 
@@ -22,7 +22,7 @@ If we want to run SQL queries on an existing RDD, we will need first convert the
 Suppose a simple RDD with ID column and two columns of random numbers:
 
 {{< tabs "Apply a schema" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 import random
 
@@ -47,7 +47,7 @@ print(rddRandom.collect())
 To apply a _schema_, we can use the `.StructField` method to create a _schema_ object that's based on a `string` and then apply the _schema_ to the RDD to create a DataFrame, using the `createDataFrame()`:
 
 {{< tabs "Apply a Schema 2" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.sql.types import *
 
@@ -76,7 +76,7 @@ Row(ID='5', VAL1='0', VAL2='2')
 To run SQL queries, we have to register the DataFrame as a table and to define a new DataFrame for the results of the SQL query using the `.sqlContext.sql()` method.
 
 {{< tabs "Create a Table" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 schemaExample.registerTempTable("random_Table") ### prefer names without space; use underscore if necessary
 
@@ -131,7 +131,7 @@ See additionally:
 Another alternative is to create an RDD with named columns from an existing RDD, using `.map()`  and `Row()`, and then convert it to a DataFrame using `.toDF()`:
 
 {{< tabs "Create rows with named columns" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.sql import Row
 

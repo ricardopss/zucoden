@@ -1,8 +1,8 @@
 ---
 title: "Split the Data Into Subsets With Pyspark"
 date: 2020-02-23T23:26:34+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data', 'url']
+series: ['pyspark']
+tags: ['sql', 'randomSplit']
 categories: ["Python"]
 ---
 
@@ -17,7 +17,7 @@ E.g. to split the OnlineRetail data into three sets:
 3. a training data set (80% of the data): {{< code gold>}}trainDf{{< /code >}}
 
 {{< tabs "Split Data Set Randomly" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 testDf, cvDf, trainDf = retailDf.randomSplit([.1,.1,.8], 1) ### retailDf is a PySpark DataFrame
 

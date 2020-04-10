@@ -2,7 +2,7 @@
 title: "D3 Introduction"
 date: 2020-03-28T17:25:29+01:00
 series: ["D3"]
-tags: ['.data', 'data join', '.datum']
+tags: ['data', 'data join', 'datum']
 categories: ["Javascript"]
 ---
 

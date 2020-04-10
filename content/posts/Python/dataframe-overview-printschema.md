@@ -1,8 +1,8 @@
 ---
 title: "DataFrame Overview `printSchema()`"
 date: 2020-02-20T16:10:08+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark']
+tags: ['json', 'printSchema']
 categories: ["Python"]
 ---
 

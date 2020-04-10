@@ -2,10 +2,14 @@
 title: "Enter Exit"
 date: 2020-03-28T17:23:38+01:00
 series: ["D3"]
-tags: ['.enter', '.append', '.exit', '.merge']
+tags: ['enter', 'append', 'exit', 'merge']
 categories: ["Javascript"]
 ---
 <script src="//d3js.org/d3.v4.min.js"></script>
+
+<script>
+var myDataAE = ['A', 'B', 'C', 'D', 'E'];
+</script>
 
 In the [Data joins](/posts/javascript/data-joins)  we show how to join an array of data to a D3 selection.
 
@@ -137,12 +141,11 @@ we use `.enter` and `.append` to add div elements for D and E:
 </div>
 
 <script>
-var myData = ['A', 'B', 'C', 'D', 'E'];
 
 function doEnter() {
 	d3.select('#content1')
 	  .selectAll('div')
-	  .data(myData)
+	  .data(myDataAE)
 	  .enter()
 	  .append('div');
 }
@@ -213,12 +216,10 @@ Note that we can join an array to an empty selection which is a very common patt
 </div>
 
 <script>
-var myData = ['A', 'B', 'C', 'D', 'E'];
-
 function doEnterNull() {
 	d3.select('#content2')
 	  .selectAll('div')
-	  .data(myData)
+	  .data(myDataAE)
 	  .enter()
 	  .append('div');
 }
@@ -293,11 +294,11 @@ u.text(function(d) {
 <style>
 #content3a div {
 	display: inline-block;
-	margin: 10px;
+	margin: 2px;
 	background-color: orange;
 	color: white;
-	width: 10px;
-	height: 10px;
+	width: 40px;
+	height: 30px;
 	text-align: center;
 }
 </style>
@@ -313,17 +314,15 @@ u.text(function(d) {
 </div>
 
 <script>
-var myData = ['A', 'B', 'C', 'D', 'E'];
-
 function doEnterUpdateA() {
-var u = d3.select('#content3a')
+var u1 = d3.select('#content3a')
   .selectAll('div')
-  .data(myData);
+  .data(myDataAE);
 
-u.enter()
+u1.enter()
   .append('div');
 
-u.text(function(d) {
+u1.text(function(d) {
   return d;
 });
 }
@@ -349,11 +348,11 @@ u.enter()
 <style>
 #content3b div {
 	display: inline-block;
-	margin: 10px;
+	margin: 2px;
 	background-color: orange;
 	color: white;
-	width: 10px;
-	height: 10px;
+	width: 40px;
+	height: 30px;
 	text-align: center;
 }
 </style>
@@ -369,14 +368,12 @@ u.enter()
 </div>
 
 <script>
-var myData = ['A', 'B', 'C', 'D', 'E'];
-
 function doEnterUpdateB() {
-var u = d3.select('#content3b')
+var u2 = d3.select('#content3b')
   .selectAll('div')
-  .data(myData);
+  .data(myDataAE);
 
- u.enter()
+ u2.enter()
   .append('div')
   .text(function(d) {
   return d;
@@ -421,11 +418,11 @@ u.enter()
 <style>
 #content4 div {
 	display: inline-block;
-	margin: 10px;
+	margin: 2px;
 	background-color: orange;
 	color: white;
-	width: 10px;
-	height: 10px;
+	width: 40px;
+	height: 30px;
 	text-align: center;
 }
 </style>
@@ -441,14 +438,12 @@ u.enter()
 </div>
 
 <script>
-var myData = ['A', 'B', 'C', 'D', 'E'];
-
 function doEnterUpdate4() {
-var u = d3.select('#content4')
+var u3 = d3.select('#content4')
   .selectAll('div')
-  .data(myData);
+  .data(myDataAE);
 
- u.enter()
+ u3.enter()
   .append('div')
   .merge(u)
   .text(function(d) {
@@ -492,8 +487,8 @@ function update(data) {
 	background-color: orange;
 	color: white;
 	padding: 8px;
-	width: 14px;
-	height: 14px;
+	width: 28px;
+	height: 28px;
 	text-align: center;
 }
 </style>
@@ -510,23 +505,23 @@ var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function doUpdateEnter5() {
 	var rand = Math.floor( Math.random() * 26 );
-	var myData = letters.slice(0, rand).split('');
-	update(myData);
+	var myDataA = letters.slice(0, rand).split('');
+	update(myDataA);
 }
 
 function update(data) {
-	var u = d3.select('#contentEnter5')
+	var u5 = d3.select('#contentEnter5')
 	  .selectAll('div')
 	  .data(data);
 
-	u.enter()
+	u5.enter()
 	  .append('div')
-	  .merge(u)
+	  .merge(u5)
 		.text(function(d) {
 			return d;
 		});
 
-	u.exit().remove();
+	u5.exit().remove();
 }
 
 doUpdateEnter5();
@@ -652,15 +647,15 @@ function doInsertE6A() {
 }
 
 function updateA(data) {
-	var u = d3.select('#contentE6A')
+	var u7 = d3.select('#contentE6A')
 		.selectAll('div')
 		.data(data, function(d) {
 			return d;
 		});
 
-	u.enter()
+	u7.enter()
 		.append('div')
-		.merge(u)
+		.merge(u7)
 		.transition()
 		.style('left', function(d, i) {
 			return i * 32 + 'px';
@@ -753,13 +748,13 @@ function doInsertE6B() {
 }
 
 function updateB(data) {
-	var u = d3.select('#contentE6B')
+	var u8 = d3.select('#contentE6B')
 		.selectAll('div')
 		.data(data);
 
-	u.enter()
+	u8.enter()
 		.append('div')
-		.merge(u)
+		.merge(u8)
 		.transition()
 		.style('left', function(d, i) {
 			return i * 32 + 'px';

@@ -1,15 +1,15 @@
 ---
 title: "Create a RDD using `parallelize()`"
 date: 2020-02-23T21:12:48+01:00
-series: ['PySpark']
-tags: ['RDD', 'big data']
+series: ['pyspark']
+tags: ['RDD', 'parallelize']
 categories: ["Python"]
 ---
 
 The `.parallelize()` method is the main method to create a RDD.
 
 {{< tabs "Create a collection" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] # collection of numbers (nbr)
 

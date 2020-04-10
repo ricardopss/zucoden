@@ -1,7 +1,7 @@
 ---
 title: "Sphinx Module"
 date: 2020-01-27T14:20:29+01:00
-series: ['Sphinx']
+series: ['sphinx']
 tags: ['documentation', 'code', 'help']
 categories: ['Python']
 ---

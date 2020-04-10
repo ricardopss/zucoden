@@ -1,15 +1,15 @@
 ---
 title: "Enabling the SQL Process"
 date: 2020-02-20T16:10:01+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark']
+tags: ['SQLContext']
 categories: ["Python"]
 ---
 
 Before run SQL queries on data in a Spark environment, you need to enable the SQL processing using `SQLContext()`: 
 
 {{< tabs "Enable SQL" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.sql import SQLContext
 

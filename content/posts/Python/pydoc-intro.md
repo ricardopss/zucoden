@@ -2,13 +2,14 @@
 title: "PyDoc Intro"
 date: 2020-01-17T21:20:38+01:00
 draft: false
-tags: ['PyDoc', 'documentation', 'help']
+series: ['pydoc']
+tags: ['documentation', 'help']
 categories: ['Python']
 ---
 
 PyDoc is a documentation generator and online help system. It automatically generates documentation from Python modules. The documentation can be presented as pages of text on the console, served to a Web browser, or saved to HTML files.
 
-### run pydoc module (basic script code):
+## run pydoc module (basic script code):
 
 `python - m pydoc`		
 
@@ -51,13 +52,13 @@ Note that pydoc is for looking the documentation for a module, class or function
 
 The pydoc is equivalent of a help() function, but with the advantage that it is not necessary to import the module to make consultation.
 
-### run pydoc module to search for a specific keyword in all available modules:
+## run pydoc module to search for a specific keyword in all available modules:
 
 `python - m pydoc -k keyword`
 
 z.B. `python - m pydoc -k sql`
 
-### run pydoc module start an HTTP server on the given port on the local machine:
+## run pydoc module start an HTTP server on the given port on the local machine:
 
 `python - m pydoc -p 314`
 
@@ -67,7 +68,7 @@ Server commands: [b]rowser, [q]uit
 ```	
 **Obs:** if you are running multiple services, use `python - m pydoc -b` to start an HTTP server on an arbitrary unused port.
 
-### run pydoc module write out a HTML documentation for a module:
+## run pydoc module write out a HTML documentation for a module:
 
 open a specific folder and type:
 

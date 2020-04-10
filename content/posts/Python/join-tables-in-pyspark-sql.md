@@ -1,15 +1,15 @@
 ---
 title: "Join Tables in PySpark SQL"
 date: 2020-02-20T19:14:20+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark', 'random']
+tags: ['sql', 'SQLContext', 'append', 'parallelize', 'StructField', 'StringType', 'split', 'StructType', 'createDataFrame', 'registerTempTable', 'toPandas', 'sql joins']
 categories: ["Python"]
 ---
 
 As an example we will create two DataFrames with 2 columns of random numbers from an RDDs + schema:
 
 {{< tabs "Join Tables - DataFrames" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 import random
 from pyspark.sql.types import *

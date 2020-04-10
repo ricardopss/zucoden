@@ -1,15 +1,15 @@
 ---
 title: "Methods to View the Data in RDD"
 date: 2020-02-23T21:12:54+01:00
-series: ['PySpark']
-tags: ['RDD', 'big data']
+series: ['pyspark']
+tags: ['RDD', 'collect', 'first', 'take', 'top']
 categories: ["Python"]
 ---
 
 The main methods to give an overview of the data are `.first()`, `.take(int)`, `.top(int)` and `.collect()`:
 
 {{< tabs "View the data" >}}
-{{< tab "python" >}}  
+{{< tab "py" >}}  
 ```python
 print(x_nbr_rdd.first())  #View the first element in the RDD
 print(x_nbr_rdd.take(5)) # view the first five elements in the RDD

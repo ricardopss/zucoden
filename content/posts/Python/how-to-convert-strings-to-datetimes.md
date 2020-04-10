@@ -2,14 +2,14 @@
 title: "How to Convert Strings to Datetimes"
 date: 2020-01-18T16:31:56+01:00
 series: ['datetime']
-tags: ['date', 'time', 'strings']
+tags: ['date', 'time', 'strptime', 'datetime']
 categories: ['Python']
 ---
 
 To convert strings to datetimes use `strptime()`[^1] method 
 
 {{< tabs "Uniqueid" >}}
-{{< tab "python" >}} 
+{{< tab "py" >}} 
 ```python
 import datetime as dt
 

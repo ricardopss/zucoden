@@ -1,8 +1,8 @@
 ---
 title: "Installing PySpark in Google Colab"
 date: 2020-02-20T16:45:35+01:00
-series: ['PySpark']
-tags: ['shell', 'big data', 'install']
+series: ['pyspark', 'findspark', 'os']
+tags: ['wget', 'apt', 'pip','install']
 categories: ["Python"]
 ---
 
@@ -22,7 +22,7 @@ import findspark
 findspark.init()
 ```
 {{< betonen red >}}
-If it returns a error it is probably because the Spark version in the code is outdate. Check the [Spark website](https://spark.apache.org/downloads.html), search for the newst version and replace in the code above.
+If it returns a error it is probably because the Spark version in the code is outdate. Check the [Spark website](https://spark.apache.org/downloads.html), search for the newst version and replace in the code above (in case, `2.4.5`).
 {{< /betonen >}}
 
 With the PySpark installed, we can now initiate a [Spark driver application](/posts/python/create-a-sparkcontext)

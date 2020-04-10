@@ -2,7 +2,7 @@
 title: "IBM Data Science Professional Certificate"
 date: 2020-01-20T22:39:13+01:00
 draft: false
-tags: ['coursera', 'Data Science', 'IBM']
+tags: ['coursera', 'IBM']
 categories: ["Python"]
 description: "Kickstart in Data Science & ML. Master data science, learn Python & SQL, analyze & visualize data, build machine learning models."
 ---

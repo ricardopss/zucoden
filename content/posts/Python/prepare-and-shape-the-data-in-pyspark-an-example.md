@@ -1,8 +1,8 @@
 ---
 title: "Prepare and Shape the Data in PySpark - an Example"
 date: 2020-02-23T20:20:13+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data', 'url', 'RDD']
+series: ['pyspark', 're']
+tags: ['wget', 'textFile', 'SQLContext', 'filter', 'map', 'first', 'createDataFrame', 'sql', 'registerTempTable', 'printSchema', 'toPandas']
 categories: ["Python"]
 ---
 
@@ -25,7 +25,7 @@ Data columns:
 Since we are using a [data file from URL](/posts/python/create-a-rdd-from-file), we use the `.textFile()` method to create a RDD.
 
 {{< tabs "Get the Data File from URL" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 ### To run shell commands in Python Notebooks, use !
 
@@ -66,7 +66,7 @@ InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Countr
 {{< betonen grey >}}Remove the header from the RDD and split the string in each row with a comma:{{< /betonen >}}
 
 {{< tabs "Format the data" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 header = loadRetailData.first()
 
@@ -98,7 +98,7 @@ Remove the rows that have incomplete data. Keep only the rows that meet the foll
 {{< /betonen >}}
 
 {{< tabs "Clean the data" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 import re
 
@@ -129,7 +129,7 @@ where \D [matches any character which is not a decimal digit.](https://docs.pyth
 3. Register the DataFrame as a table so that you can run SQL queries on it and show the first two rows
 
 {{< tabs "Create a DataFrame" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 from pyspark.sql import SQLContext, Row
 sqlContext = SQLContext(sc)
@@ -176,7 +176,7 @@ root
 {{< betonen grey >}}The only columns needed are custId, stockCode, and a new column, purch, which has a value of 1 to indicate that the customer purchased the product{{< /betonen >}}
 
 {{< tabs "Remove unneeded columns" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 query = """
 SELECT 

@@ -1,8 +1,8 @@
 ---
 title: "Display Query Results With a Pandas Dataframe"
 date: 2020-02-20T18:01:43+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark', 'pandas']
+tags: ['registerTempTable', 'sql', 'toPandas']
 categories: ["Python"]
 ---
 

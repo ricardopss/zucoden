@@ -2,7 +2,7 @@
 title: "Sizing Circles by Area Rather Than Radius"
 date: 2020-04-07T18:16:50+02:00
 series: ["D3"]
-tags: ['.scaleSqrt', 'scale']
+tags: ['scaleSqrt', 'scale']
 categories: ["Javascript"]
 ---
 <script src="//d3js.org/d3.v4.min.js"></script>

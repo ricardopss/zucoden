@@ -1,15 +1,15 @@
 ---
 title: "Display Query Results"
 date: 2020-02-20T18:14:31+01:00
-series: ['PySpark']
-tags: ['querying data', 'SQL', 'big data']
+series: ['pyspark']
+tags: ['registerTempTable', 'sql', 'show', 'take']
 categories: ["Python"]
 ---
 
 Once we have the DataFrame, the `show()` function displays information about its content (or queries):
 
 {{< tabs "Display Query Results" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 ### starting from the DataFrame schemaExample
 schemaExample.registerTempTable("random_Table") 

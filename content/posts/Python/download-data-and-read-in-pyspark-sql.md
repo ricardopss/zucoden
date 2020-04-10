@@ -1,8 +1,8 @@
 ---
 title: "Downloading Data and Reading in PySpark SQL"
 date: 2020-02-20T16:12:24+01:00
-series: ['PySpark']
-tags: ['querying data', 'shell', 'SQL', 'big data', 'url']
+series: ['pyspark']
+tags: ['wget', 'printSchema', 'json', 'registerTempTable', 'sql']
 categories: ["Python"]
 ---
 
@@ -45,7 +45,7 @@ A self-describing format like JSON is ideal for DataFrames, but many other file 
 Create a DataFrame from JSON file using the `.read.json()` method:
 
 {{< tabs "Create a DataFrame" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 dfWorldBank = sqlContext.read.json("world_bank.json.gz") ### create a DataFrame
 
@@ -102,7 +102,7 @@ See also [DataFrame overview, using `printSchema`](/posts/python/dataframe-overv
 SQL statements must be run against a table, so we initially create a table and then we define a new DataFrame for the results of the SQL query using the `.sqlContext.sql()` method.
 
 {{< tabs "Run SQL Queries 1" >}}
-{{< tab "python" >}}
+{{< tab "py" >}}
 ```python
 dfWorldBank.registerTempTable("world_bank") # where world_bank is the Table´s name
 
