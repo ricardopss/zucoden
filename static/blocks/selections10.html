@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+circle.round {
+	fill: gold;
+	}
+</style>
+
+<svg width = "700" heigth = "100">
+	<g transform = "translate(70,70)">
+		<circle class="round" r="30"></circle>
+		<circle class="round" r="30" cx= "120"></circle>
+		<circle class="round" r="30" cx= "240"></circle>
+		<circle class="round" r="30" cx= "360"></circle>	
+		<circle class="round" r="30" cx= "480"></circle>						
+	</g>
+</svg>
+
+<div>
+Click on a circle
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+d3.selectAll('circle.round')
+  .on('click', function(d, i) {
+    d3.select(this)
+      .style('fill', 'red');
+ });
+</script>
+
+
+</body>
+</html>

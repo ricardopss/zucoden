@@ -5,7 +5,6 @@ series: ["D3"]
 tags: ['data', 'data join', 'datum']
 categories: ["Javascript"]
 ---
-<script src="//d3js.org/d3.v4.min.js"></script>
 
 Given an array of data and a D3 selection we can _attach_ or _join_ each array element to each element of the selection.
 
@@ -58,40 +57,8 @@ d3.selectAll('circle')
 ```
 {{< /tab>}}
 {{< tab ">>" >}}
-
-{{< svgCircle dj >}}
-
-<script>
-var myData = [
-  {
-    "name": "Andy",
-    "score": 25
-  },
-  {
-    "name": "Beth",
-    "score": 39
-  },
-  {
-    "name": "Craig",
-    "score": 42
-  },
-  {
-    "name": "Diane",
-    "score": 35
-  },
-  {
-    "name": "Evelyn",
-    "score": 48
-  }
-]
-
-d3.selectAll('circle.dj')
-  .data(myData)
-  .attr('r', function(d) {
-    return d.score;
-  });
-</script>
-
+<iframe src="/blocks/data-join01.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none">
+</iframe>
 {{< /tab>}}
 
 {{< tab "js" >}}
@@ -100,13 +67,15 @@ function dataJoin() {
 
   d3.select(this)
     .append('circle')
-    .style('fill', 'gold')
+    .style('fill', 'red')
+    .style('opacity', .25)
     .attr('r', function(d) {
     	return d.score;
   	});
 
   d3.select(this)
     .append('text')
+    .style("text-anchor", "middle")    
     .text(function(d) {
     	return d.name;
   	});
@@ -118,64 +87,8 @@ d3.selectAll('g.item')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-
-<svg width="760" height="140">
-	<g class ='dj1' transform="translate(70, 70)">
-	</g>
-	<g class ='dj1' transform="translate(200, 70)">
-	</g>
-	<g class ='dj1' transform="translate(330, 70)">
-	</g>
-	<g class ='dj1' transform="translate(460, 70)">
-	</g>
-	<g class ='dj1' transform="translate(590, 70)">
-	</g>	
-</svg>
-
-<script>
-var myData = [
-  {
-    "name": "Andy",
-    "score": 25
-  },
-  {
-    "name": "Beth",
-    "score": 39
-  },
-  {
-    "name": "Craig",
-    "score": 42
-  },
-  {
-    "name": "Diane",
-    "score": 35
-  },
-  {
-    "name": "Evelyn",
-    "score": 48
-  }
-]  
-
-function dataJoin() {
-  d3.select(this)
-    .append('circle')
-    .style('fill', 'gold')
-    .attr('r', function(d) {
-    	return d.score;
-  	});
-
-  d3.select(this)
-    .append('text')
-    .text(function(d) {
-    	return d.name;
-  	});
-}
-
-d3.selectAll('g.dj1')
-  .data(myData)
-  .each(dataJoin);
-</script>
-
+<iframe src="/blocks/data-join02.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none">
+</iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -254,28 +167,8 @@ s.attr('r', function(d) {
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-<svg width = "760" heigth = "140">
- <g transform="translate(70,70)">
-	<circle class='dj3' cx= "0"/>
-  	<circle class='dj3' cx= "120"/>
-	<circle class='dj3' cx= "240"/>
-	<circle class='dj3' cx= "360"/>
-	<circle class='dj3' cx= "480"/>
- </g>
-</svg>
-
-<script>
-var myData2 = [ 10, 20, 30, 40, 50 ]
-
-var s = d3.selectAll('circle.dj3');
-
-s.data(myData2);
-s.attr('r', function(d) {
-  return d;
-});
-
-</script>
-
+<iframe src="/blocks/data-join03.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none">
+</iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -298,10 +191,10 @@ Now let’s set a class (`high`) on each element if the value is >= 40 and final
 ```js
 /**
 <style>
-circle.high {
-	stroke: gold;
-	stroke-width: 4px;
-	}
+  circle.high {
+  	stroke: gold;
+  	stroke-width: 4px;
+  	}
 </style>
 **/
 
@@ -315,42 +208,8 @@ s.attr('cx', function(d, i) {
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-<style>
-circle.high {
-	stroke: gold;
-	stroke-width: 4px;
-	}
-</style>
-
-<svg width = "760" heigth = "140">
- <g transform="translate(70,70)">
-	<circle id='dj4' cx= "0"/>
-  	<circle id='dj4' cx= "120"/>
-	<circle id='dj4' cx= "240"/>
-	<circle id='dj4' cx= "360"/>
-	<circle id='dj4' cx= "480"/>
- </g>
-</svg>
-
-<script>
-var myData4 = [ 10, 20, 30, 40, 50 ]
-
-var s = d3.selectAll('#dj4');
-
-s.data(myData4);
-
-s.attr('r', function(d) {
-  return d;
-  })
-  .classed('high', function(d) {
-    return d >= 40;
-  })
-  .attr('cx', function(d, i) {
-    return i * 90;
-  });
-
-</script>
-
+<iframe src="/blocks/data-join04.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none">
+</iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -387,31 +246,8 @@ s.attr('r', function(d) {
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-
-{{< svgCircle dj5 >}}
-
-<script>
-var cities = [
-  { name: 'London', population: 8674000},
-  { name: 'New York', population: 8406000},
-  { name: 'Sydney', population: 4293000},
-  { name: 'Paris', population: 2244000},
-  { name: 'Beijing', population: 11510000}
-]
-
-d3.selectAll('circle.dj5')
-  .data(cities)
-  .style('fill', 'red')
-  .attr('r', function(d) {
-    var scaleFactor = 0.000005;
-    return d.population * scaleFactor;
-  })
-  .attr('cx', function(d, i) {
-    return i * 110;
-  });
-
-</script>
-
+<iframe src="/blocks/data-join05.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none">
+</iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -453,69 +289,7 @@ d3.selectAll('text')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-
-<style>
-rect {
-  fill: steelblue;
-}
-rect:hover {
-  fill: orange;
-}
-text {
-  text-anchor: end;
-}
-</style>
-
-<svg width="760" height="140">
-<g transform="translate(70, 30)">
-  <rect />
-  <rect />
-  <rect />
-  <rect />
-  <rect />
-</g>
-<g transform="translate(70, 30)">
-  <text class = 'rect'/>
-  <text class = 'rect'/>
-  <text class = 'rect'/>
-  <text class = 'rect'/>
-  <text class = 'rect'/>
-</g>
-</svg>
-
-<script>
-var cities = [
-  { name: 'London', population: 8674000},
-  { name: 'New York', population: 8406000},
-  { name: 'Sydney', population: 4293000},
-  { name: 'Paris', population: 2244000},
-  { name: 'Beijing', population: 11510000}
-];
-
-// Join cities to rect elements and modify height, width and position
-d3.selectAll('rect')
-  .data(cities)
-  .attr('height', 19)
-  .attr('width', function(d) {
-    var scaleFactor = 0.00004;
-    return d.population * scaleFactor;
-  })
-  .attr('y', function(d, i) {
-    return i * 20;
-  })
-
-// Join cities to text elements and modify content and position
-d3.selectAll('text.rect')
-  .data(cities)
-  .attr('y', function(d, i) {
-    return i * 20 + 13;
-  })
-  .attr('x', -4)
-  .text(function(d) {
-    return d.name;
-  });
-</script>
-
+<iframe src="/blocks/data-join06.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 

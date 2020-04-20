@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+circle.high {
+  stroke: gold;
+  stroke-width: 4px;
+  }
+</style>
+
+<svg width = "760" heigth = "140">
+ <g transform="translate(70,70)">
+  <circle id='dj' cx= "0"/>
+  <circle id='dj' cx= "120"/>
+  <circle id='dj' cx= "240"/>
+  <circle id='dj' cx= "360"/>
+  <circle id='dj' cx= "480"/>
+ </g>
+</svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+var myData = [ 10, 20, 30, 40, 50 ]
+
+var s = d3.selectAll('#dj');
+
+s.data(myData);
+
+s.attr('r', function(d) {
+  return d;
+  })
+  .classed('high', function(d) {
+    return d >= 40;
+  })
+  .attr('cx', function(d, i) {
+    return i * 90;
+  });
+
+</script>
+
+</body>
+</html>

@@ -75,3 +75,7 @@ Sum_rd.first() # prefer to use the first() to collect()
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+{{< betonen gold >}}
+For an example highlighting the difference between `.flatMap()` and `.map()`, see [here](/posts/python/difference-between-map-and-flatmap)
+{{< /betonen >}}

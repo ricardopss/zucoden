@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+circle.eg {
+	fill: gold;
+	}
+</style>
+
+<svg width = "760" heigth = "140">
+  <g transform = "translate(70,70)">
+    <circle class="eg" r= "30"></circle>
+    <circle class="eg" r= "30" cx= "120"></circle>
+    <circle class="eg" r= "30" cx= "240"></circle>
+    <circle class="eg" r= "30" cx= "360"></circle>
+    <circle class="eg" r= "30" cx= "480"></circle>
+  </g>
+</svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+  d3.select("circle.eg:nth-child(2)")
+    .style('fill', 'red')    
+    .style('stroke', '#555')
+    .style('stroke-width', '2px')
+
+  d3.select("circle.eg:nth-child(5)")
+      .style('fill', 'blue')
+</script>
+
+</body>
+</html>

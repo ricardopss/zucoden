@@ -2,7 +2,7 @@
 title: "Downloading Data and Reading in PySpark SQL"
 date: 2020-02-20T16:12:24+01:00
 series: ['pyspark']
-tags: ['wget', 'printSchema', 'json', 'registerTempTable', 'sql']
+tags: ['wget', 'printSchema', 'json', 'registerTempTable', 'sql', 'dataframe']
 categories: ["Python"]
 ---
 

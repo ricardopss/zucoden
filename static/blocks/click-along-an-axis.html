@@ -1,16 +1,22 @@
----
-title: "Convert user´s click along an axis into a domain value"
-date: 2020-04-07T17:58:25+02:00
-series: ["D3"]
-tags: ['scaleLinear', 'invert', 'scale']
-categories: ["Javascript"]
----
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-A common use of the `.invert()` method that allows us to determine a scale function’s input value given an output value is when we want to convert a user’s click along an axis into a domain value:
+<style>
+  rect {
+	fill: #ccc;
+	cursor: pointer;
+  }
+  .info {
+	margin-left: 20px;
+  }
+</style>
 
-{{< tabs "ConvertUserClick" >}}
-{{< tab "js" >}}
-```html
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
 <svg width="700" height="80">
 	<g transform="translate(20, 10)">
   	<g class="axis" transform="translate(0, 40)"></g>
@@ -50,12 +56,5 @@ d3.select('.click-area')
 	.on('click', doClick);
 
 </script>
-``` 
-{{< /tab >}}
-
-{{< tab ">>" >}}
-<iframe src="/blocks/click-along-an-axis.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:120px; border:none">
-</iframe>
-{{< /tab >}}
-{{< /tabs >}}
-
+</body>
+</html>

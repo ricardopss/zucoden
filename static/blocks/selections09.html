@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<svg width="760" height="140">
+  <g transform="translate(70, 70)">
+    <circle class="handling" r="40" />
+    <circle class="handling" r="40" cx="120" />
+    <circle class="handling" r="40" cx="240" />
+    <circle class="handling" r="40" cx="360" />
+    <circle class="handling" r="40" cx="480" />
+  </g>
+</svg>
+
+<div class="statusover">Pass mouse over a circle</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+d3.selectAll('circle.handling')
+  .on('mouseover', function(d, i) {
+    d3.select('.statusover')
+      .text('This is the circle ' + (i + 1));
+  });
+</script>
+
+</body>
+</html>

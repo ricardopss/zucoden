@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<svg width = "700" heigth = "100">
+	<g transform = "translate(70,70)">
+		<circle class= "dj"></circle>
+		<circle class= "dj" cx= "120"></circle>
+		<circle class= "dj" cx= "240"></circle>
+		<circle class= "dj" cx= "360"></circle>	
+		<circle class= "dj" cx= "480"></circle>						
+	</g>
+</svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+d3.selectAll('circle.dj')
+  .each(function(d, i) {
+    var odd = i % 2 === 1;  
+
+    d3.select(this)
+      .style('fill', odd ? 'orange' : '#ddd')
+      .attr('r', odd ? 40 : 20);
+  });
+</script>
+
+
+</body>
+</html>

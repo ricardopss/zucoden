@@ -5,7 +5,8 @@ series: ["D3"]
 tags: ['selections', 'select', 'selectAll']
 categories: ["Javascript"]
 ---
-<script src="//d3js.org/d3.v4.min.js"></script>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
 {{< code gold >}}Selections{{< /code >}} allow DOM elements to be selected in order to do something with them (e.g. changing style, modifying their attributes, performing data-joins or inserting/removing elements).
 
@@ -13,9 +14,15 @@ As a baseline elements, we will use 5 circles:
 
 {{< tabs "Baseline" >}}
 {{< tab ">>" >}}
-
-{{< svgCircle base >}}
-
+<svg width = "760" heigth = "140">
+	<g transform = "translate(70,70)">
+		<circle r= "30" style= "fill:gold;"></circle>
+		<circle r= "30" style= "fill:gold;" cx= "120"></circle>
+		<circle r= "30" style= "fill:gold;" cx= "240"></circle>
+		<circle r= "30" style= "fill:gold;" cx= "360"></circle>
+		<circle r= "30" style= "fill:gold;" cx= "480"></circle>
+	</g>
+</svg>
 {{< /tab >}}
 {{< tab "html" >}}
 ```html
@@ -51,15 +58,7 @@ d3.selectAll('circle')
 {{< /tab >}}
 
 {{< tab ">>" >}}
-{{< svgCircle eg1 >}}
-
-<script>
-	d3.selectAll("circle.eg1")
-  		.style('fill', 'blue')
-  		.attr('r', function() {
-    return 10 + Math.random() * 25;
-  });
-</script>
+<iframe src="/blocks/selections01.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -78,16 +77,7 @@ d3.select('circle:nth-child(5)')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-{{< svgCircle eg1a >}}
-<script>
-	d3.select("circle.eg1a:nth-child(2)")
-  		.style('fill', 'red')
-  		.style('stroke', '#555')
-  		.style('stroke-width', '2px')
-
-	d3.select("circle.eg1a:nth-child(5)")
-  		.style('fill', 'blue')
-</script>
+<iframe src="/blocks/selections02.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -143,11 +133,7 @@ d3.select('circle')
 {{< /tab >}}
 
 {{< tab ">>" >}}
-{{< svgCircle eg2 >}}
-<script>
-	d3.select("circle.eg2")
-  		.style('fill', 'blue')
-</script>
+<iframe src="/blocks/selections03.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -164,11 +150,7 @@ d3.selectAll('circle')
 {{< /tab >}}
 
 {{< tab ">>" >}}
-{{< svgCircle eg4 >}}
-<script>
-	d3.selectAll("circle[class='eg4']")
-	  .attr('r', 50);
-</script>
+<iframe src="/blocks/selections04.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -192,12 +174,7 @@ to add `.round` a class to 3rd circle:
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-{{< svgCircle eg5 >}}
-<script>
-	d3.select("circle[class='eg5']:nth-child(3)")
-	  .style('stroke','#555')
-	  .style('stroke-width','2px');	  
-</script>
+<iframe src="/blocks/selections05.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -371,18 +348,7 @@ d3.selectAll('circle')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-{{< svgCircle removing >}}
-
-<div>
-	<button onClick="removeCircle();">Remove circles</button>
-</div>
-
-<script>
-function removeCircle() {
-	d3.selectAll("circle.removing")
-	.remove(); 
-	}
-</script>
+<iframe src="/blocks/selections06.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:180px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -414,20 +380,7 @@ d3.selectAll('circle.round')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-{{< svgCircle round >}}
-
-<div>
-	<button onClick="update();">Update circle elements using function(d, i)</button>
-</div>
-
-<script>
-function update() {
-	d3.selectAll('circle.round')
-	  .attr('cx', function(d, i) {
-	    return i * 40;
-	  });
-	}
-</script>
+<iframe src="/blocks/selections07.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:180px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -443,7 +396,7 @@ d3.selectAll('circle.round')
 ```
 
 ## Handling events
-We can add {{< code  >}}event handlers{{< /code >}} to selected elements using `.on` which expects a callback function into which is passed two arguments `d` and `i`. As before, `d` is the joined data (see the [Data Joins](/posts/javascript/data-joins)) and `i` is the index of the element within the selection.
+We can add {{< code gold >}}event handlers{{< /code >}} to selected elements using `.on` which expects a callback function into which is passed two arguments `d` and `i`. As before, `d` is the joined data (see the [Data Joins](/posts/javascript/data-joins)) and `i` is the index of the element within the selection.
 
 **E.g. with click:** set up an event handler to update a status element with the index of the `click` of the element:
 
@@ -472,25 +425,7 @@ d3.selectAll('circle')
 ```
 {{< /tab >}}
 {{< tab ">>" >}}
-<svg width="760" height="140">
-	<g transform="translate(70, 70)">
-	  <circle class="handling1" r="40" />
-	  <circle class="handling1" r="40" cx="120" />
-	  <circle class="handling1" r="40" cx="240" />
-	  <circle class="handling1" r="40" cx="360" />
-	  <circle class="handling1" r="40" cx="480" />
-	</g>
-</svg>
-
-<div class="status">Click on a circle</div>
-
-<script>
-d3.selectAll('circle.handling1')
-  .on('click', function(d, i) {
-    d3.select('.status')
-      .text('You clicked on circle ' + (i + 1));
-  });
-</script>
+<iframe src="/blocks/selections08.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -521,25 +456,7 @@ d3.selectAll('circle')
 ```
 {{< /tab >}}
 {{< tab ">>" >}}
-<svg width="760" height="140">
-	<g transform="translate(70, 70)">
-	  <circle class="handling2" r="40" />
-	  <circle class="handling2" r="40" cx="120" />
-	  <circle class="handling2" r="40" cx="240" />
-	  <circle class="handling2" r="40" cx="360" />
-	  <circle class="handling2" r="40" cx="480" />
-	</g>
-</svg>
-
-<div class="statusover">Pass mouse over a circle</div>
-
-<script>
-d3.selectAll('circle.handling2')
-  .on('mouseover', function(d, i) {
-    d3.select('.statusover')
-      .text('This is the circle ' + (i + 1));
-  });
-</script>
+<iframe src="/blocks/selections09.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -568,19 +485,7 @@ d3.selectAll('circle')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-
-{{< svgCircle this >}}
-
-Click on a circle
-
-<script>
-d3.selectAll('circle.this')
-  .on('click', function(d, i) {
-    d3.select(this)
-      .style('fill', 'red');
- });
-</script>
-
+<iframe src="/blocks/selections10.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:180px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -627,34 +532,7 @@ d3.selectAll('g.item')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-<svg width="760" height="140">
-	<g class ='eacheg' transform="translate(70, 70)">
-	</g>
-	<g class ='eacheg' transform="translate(200, 70)">
-	</g>
-	<g class ='eacheg' transform="translate(330, 70)">
-	</g>
-	<g class ='eacheg' transform="translate(460, 70)">
-	</g>
-</svg>
-
-<script>
-function addNumberedCircle(d, i) {
-  d3.select(this)
-    .append('circle')
-    .attr('r', 40)
-    .style('fill', 'orange');
-
-  d3.select(this)
-    .append('text')
-    .text(i + 1)
-    .attr('y', 50)
-    .attr('x', 30);
-}
-
-d3.selectAll('g.eacheg')
-  .each(addNumberedCircle);
-</script>
+<iframe src="/blocks/selections11.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -676,19 +554,7 @@ d3.selectAll('circle')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-
-{{< svgCircle eacheg2 >}}
-
-<script>
-d3.selectAll('circle.eacheg2')
-  .each(function(d, i) {
-    var odd = i % 2 === 1;  
-
-    d3.select(this)
-      .style('fill', odd ? 'orange' : '#ddd')
-      .attr('r', odd ? 40 : 20);
-  });
-</script>
+<iframe src="/blocks/selections12.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -734,18 +600,7 @@ d3.selectAll('circle')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-
-{{< svgCircle filtering >}}
-
-<script>
-d3.selectAll('circle.filtering')
-  .filter(function(d, i) {
-    return i % 2 === 0;
-  })
-  .style('fill', 'blue')
-  .attr('r', 10);
-</script>
-
+<iframe src="/blocks/selections13.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -779,7 +634,7 @@ myData = [
   }
 ]
 ```
-we can sort by score using:
+we can sort by _score_ using:
 
 {{< tabs "Sorting" >}}
 {{< tab "js" >}}
@@ -816,86 +671,6 @@ d3.selectAll('.person')
 ``` 
 {{< /tab >}}
 {{< tab ">>" >}}
-<style>
-  .person {
-    height: 20px;
-    position: relative;
-  }
-  .person .label {
-    width: 90px;
-    text-align: right;
-  }
-  .person .bar {
-    height: 19px;
-    background-color: steelblue;
-    position: absolute;
-    left: 100px;
-  }
-  .person div {
-    display: inline-block;
-  }
-</style>
-
-<div id="wrapper"></div>
-
-<div class="menu">
-	<button onClick="sort();">Sort</button>
-</div>
-
-<script>
-myData = [
-  {
-    "name": "Andy",
-    "score": 37
-  },
-  {
-    "name": "Beth",
-    "score": 39
-  },
-  {
-    "name": "Craig",
-    "score": 31
-  },
-  {
-    "name": "Diane",
-    "score": 35
-  },
-  {
-    "name": "Evelyn",
-    "score": 38
-  }
-];
-
-var barWidth = 400;
-var barScale = d3.scaleLinear().domain([0, 100]).range([0, barWidth]);
-
-var u = d3.select('#wrapper')
-  .selectAll('.person')
-  .data(myData);
-
-var entering = u.enter()
-  .append('div')
-  .classed('person', true);
-
-entering.append('div')
-  .classed('label', true)
-  .text(function(d) {
-    return d.name;
-  });
-
-entering.append('div')
-  .classed('bar', true)
-  .style('width', function(d) {
-    return barScale(d.score) + 'px';
-  });
-
-function sort() {
-  d3.selectAll('.person')
-    .sort(function(a, b) {
-      return b.score - a.score;
-    });
-}
-  </script>
-
+<iframe src="/blocks/selections14.html" scrolling="yes" marginwidth="0" marginheight="0" style="width:100%; height:160px; border:none"></iframe>
 {{< /tab >}}
 {{< /tabs >}}

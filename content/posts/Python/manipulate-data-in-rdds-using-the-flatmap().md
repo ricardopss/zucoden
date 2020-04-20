@@ -96,4 +96,7 @@ words_rd3.take(5)
 {{< /tab >}}
 {{< /tabs >}}
 
-How to count the number of words [using `.flatMap()`](/posts/python/count-words-with-a-pair-rdd)
+{{< betonen gold >}}
+- How to count the number of words [using `.flatMap()`](/posts/python/count-words-with-a-pair-rdd)
+- An example highlighting the difference between [`.flatMap()` and `.map()`](/posts/python/difference-between-map-and-flatmap)
+{{< /betonen >}}

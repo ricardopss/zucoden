@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+circle.dj {
+	fill: gold;
+	}
+</style>
+
+<svg width = "700" heigth = "100">
+	<g transform = "translate(70,70)">
+		<circle class= "dj"></circle>
+		<circle class= "dj" cx= "120"></circle>
+		<circle class= "dj" cx= "240"></circle>
+		<circle class= "dj" cx= "360"></circle>	
+		<circle class= "dj" cx= "480"></circle>						
+	</g>
+</svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+var cities = [
+  { name: 'London', population: 8674000},
+  { name: 'New York', population: 8406000},
+  { name: 'Sydney', population: 4293000},
+  { name: 'Paris', population: 2244000},
+  { name: 'Beijing', population: 11510000}
+]
+
+d3.selectAll('circle.dj')
+  .data(cities)
+  .style('fill', 'gold')
+  .attr('r', function(d) {
+    var scaleFactor = 0.000005;
+    return d.population * scaleFactor;
+  })
+  .attr('cx', function(d, i) {
+    return i * 110;
+  });
+
+</script>
+
+</body>
+</html>
