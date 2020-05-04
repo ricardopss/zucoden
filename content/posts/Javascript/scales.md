@@ -87,6 +87,8 @@ d3.select('svg .scale1')
 
 D3 creates a function `myScale` which accepts input between 0 and 10 ({{< color blue >}}the domain{{< /color >}}) and maps it to output between 0 and 600 ({{< color blue >}}the range{{< /color >}}).
 
+The D3 `.range()` allows data go from small to a bigger representation for your chart[^1]. 
+
 We can use `myScale` to calculate positions based on the data:
 ```js
 myScale(0);   		// returns 0
@@ -1004,3 +1006,5 @@ pointScale.step();  // returns 111.11...
 ## Further reading
 - [ColorBrewer schemes for D3](https://github.com/d3/d3-scale-chromatic)
 - [Mike Bostock on d3-scale](https://medium.com/@mbostock/introducing-d3-scale-61980c51545f#.lk2cs7x7k)
+
+[^1]: In other words, `.range()` can be used to allow you to make your large input data/small input data readable. e.g. `.domain([0.0001, 0.0002].range([0, 100])` or `.domain([10000, 20000].range([0, 100])`

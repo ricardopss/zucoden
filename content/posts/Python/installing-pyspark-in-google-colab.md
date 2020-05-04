@@ -6,7 +6,7 @@ tags: ['wget', 'apt', 'pip','install']
 categories: ["Python"]
 ---
 
-To get Spark running in Colab run the following block of code:
+To get Spark running in [Google Colab](https://colab.research.google.com/) run the following block of code:
 
 ```python
 !apt-get install openjdk-8-jdk-headless -qq > /dev/null

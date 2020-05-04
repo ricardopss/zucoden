@@ -1,5 +1,5 @@
-baseURL = 'https://ricardopss-doppelpunkt.netlify.com/'
-title = 'doppelpunkt'
+baseURL = 'https://ricardopss-doppelpunkt.netlify.app/'
+title = 'do┐┌elpunkt'
 theme = 'book'
 publishDir = 'docs'
 

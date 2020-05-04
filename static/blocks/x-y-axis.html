@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script>
+var margin = {top: 20, right: 30, bottom: 30, left: 40}, 
+    width = 500,
+    height = 400;
+
+xScale = d3.scaleLinear()
+            .domain([0, 100])
+            .range([margin.left, width - margin.right]);
+
+yScale = d3.scaleLinear()
+            .domain([0,100])
+            .range([height - margin.bottom, margin.top]);
+
+
+var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+svg  
+  .append("g")
+    .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+    .call(d3.axisBottom(xScale))
+
+svg
+  .append("g")
+    .attr("transform", "translate(" + margin.left + ", 0)")
+    .call(d3.axisLeft(yScale));
+
+</script>
+
+</body>
+</html>
