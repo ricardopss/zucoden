@@ -18,23 +18,24 @@ Let's turn our single node JVM application into a so called driver program which
 
 Of course, multiple JVM instances can be started on the Worker Nodes. _As a rule of thumb, one JVM per available CPU core._
 
-Since the driver only talks to multiple remote JVM's it basically doesn't matter on which Worker Node it resides.
+> Since the driver only talks to multiple remote JVM's it basically doesn't matter on which Worker Node it resides.
 
-But what about the data ? Doesn't it matter that the data resides?
+#### But what about the data ? Doesn't it matter that the data resides?
 
-Basically there are two options for attaching to an ApacheSpark cluster. The simplest one is using an **off node storage approach**, where the third system is attached to the cluster using a fast network connection.
+Basically there are two options of _topology_ for attaching to an AS cluster. 
 
-In case high out bandwidth is needed a certain type of network technology called switching fabric is used which guarantees the maximum network performance between the storage system and the worker nodes. In this course, we will only use this topology. But there's another option.
+The simplest one is using an {{< code gold >}}off node storage approach{{< /code >}}, where the third system is attached to the cluster using a fast network connection.
 
-You can simply attach hard drives directly to the worker nodes.
+In case high out bandwidth is needed a certain type of network technology called _switching fabric_ is used which guarantees the maximum network performance between the storage system and the worker nodes.
 
-This is called the JBOD approach, Just a Bunch Of Discs, or sometimes this approach is called directly attached storage.
+Another one, you can simply attach hard drives directly to the worker nodes. This is called the _JBOD approach_ (Just a Bunch Of Discs), or sometimes this approach is called _directly attached storage_.
 
 In order to retrieve the combined storage capacity of all disks as one large virtual file system, we have to add a software component to the cluster.
 
-This component is called HDFS which stands for Hadoop Distributed File System.
+This component is called HDFS which stands for `Hadoop Distributed File System`.
 
-Note that HDFS is not compliant. You can't mount it to an operating systems, file system tree. In contrast, rest API's are used to interact with this file system, but there's also a command line lined.
+{{< betonen gold >}}
+Note: HDFS is not compliant. You can't mount it to an operating systems, file system tree. In contrast, rest API's are used to interact with this file system, but there's also a command line lined.{{< /betonen >}}
 
 Let's consider a file, too big to fit on a single disk.
 
