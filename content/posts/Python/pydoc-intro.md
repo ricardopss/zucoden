@@ -1,7 +1,6 @@
 ---
 title: "PyDoc Intro"
 date: 2020-01-17T21:20:38+01:00
-draft: false
 series: ['pydoc']
 tags: ['documentation', 'help']
 categories: ['Python']
