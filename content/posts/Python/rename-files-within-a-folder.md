@@ -2,7 +2,7 @@
 title: "Rename Files Within a Folder"
 date: 2020-05-14T12:51:51+02:00
 series: ['os']
-tags: ['rename']
+tags: ['rename', 'join', 'listdir']
 categories: ['Python']
 ---
 

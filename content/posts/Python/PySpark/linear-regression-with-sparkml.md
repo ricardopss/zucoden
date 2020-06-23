@@ -175,6 +175,8 @@ df_validation = df_split[1]
 ```
 For another example, see also [Split the data into subsets within Pyspark](/posts/python/pyspark/split-the-data-into-subsets-with-pyspark) 
 
+Se also [Cross Validation and Grid Search](/posts/python/pyspark/cross-validation-and-grid-search)
+
 ## Evaluation 
 
 {{< tabs "LinReg3" >}}
@@ -254,7 +256,8 @@ Explained variance = 2081.8992033878776
 {{< /tab >}}
 {{< /tabs >}}
 
+For classification evaluation measures, see:
+- [Precision and recall](https://en.wikipedia.org/wiki/Precision_and_recall)
+- [F1 Score](https://en.wikipedia.org/wiki/F1_score)
 
 [^1]: i.e. the model fits too strongly to the training data, and therefore, is not generalizing good enough to unseen data.
-
-## 

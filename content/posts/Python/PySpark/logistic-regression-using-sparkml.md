@@ -19,5 +19,5 @@ and, therefore:
 ## Application SparkML
 
 ```python
-
+import
 ```
